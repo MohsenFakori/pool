@@ -1,0 +1,21 @@
+{
+  "name": "pool-finance-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/lalezar": "^5.2.6",
+    "@fontsource/vazirmatn": "^5.2.6",
+    "@phosphor-icons/web": "^2.1.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17",
+    "vite": "^7.2.2"
+  }
+}
