@@ -2,6 +2,9 @@
 
 نسخه اولیه فرانت‌اند با HTML5، Tailwind CSS v4، Vanilla JavaScript، Vite و IndexedDB.
 
+## مستندات
+راهنمای کامل مراحل توسعه، ساختار پروژه، مدل داده و مسیر مهاجرت به Laravel در فایل [راهنمای توسعه](docs/DEVELOPMENT-GUIDE.md) قرار دارد.
+
 ## پیش‌نیازها
 - Node.js نسخه LTS
 - npm
