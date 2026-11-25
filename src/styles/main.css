@@ -5,10 +5,11 @@
 @import "@fontsource/lalezar/400.css";
 @import "@phosphor-icons/web/src/regular/style.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-body: "Vazirmatn", sans-serif;
   --font-display: "Lalezar", sans-serif;
-
   --color-primary: #7C3AED;
   --color-secondary: #EC4899;
   --color-cta: #F97316;
@@ -21,15 +22,6 @@
   --color-negative: #EF4444;
   --color-info: #3B82F6;
   --color-warning: #EAB308;
-
   --radius-card: 16px;
   --shadow-card: 0 4px 0 #E9D5FF;
-}
-
-@theme dark {
-  --color-app-bg: #0F0B1E;
-  --color-surface: #1B1535;
-  --color-app-text: #F5F3FF;
-  --color-muted: #A1A1AA;
-  --color-line: #2E2650;
 }
