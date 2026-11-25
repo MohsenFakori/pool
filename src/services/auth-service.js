@@ -4,8 +4,7 @@ import { userRepository } from '../repositories/user-repository.js';
 import { profileRepository } from '../repositories/profile-repository.js';
 import { sessionRepository } from '../repositories/session-repository.js';
 
-const SESSION_KEY = 'pool.active-session';
-const WELCOME_KEY = 'pool.welcome-seen';
+const { session: SESSION_KEY, welcome: WELCOME_KEY } = APP_CONFIG.storageKeys;
 
 async function hashPassword(password) {
   const bytes = new TextEncoder().encode(password);
@@ -44,17 +43,14 @@ export const authService = {
     return this.login(normalized, APP_CONFIG.defaultPassword);
   },
   async login(username, password) {
-    const user = await userRepository.findByUsername(username);
+    const normalized = username.trim().toLowerCase();
+    const user = await userRepository.findByUsername(normalized);
     if (!user || user.passwordHash !== await hashPassword(password)) {
       throw new Error('نام کاربری یا رمز عبور صحیح نیست.');
     }
 
-    const session = {
-      id: createId(),
-      userId: user.id,
-      createdAt: new Date().toISOString(),
-      lastSeenAt: new Date().toISOString()
-    };
+    const now = new Date().toISOString();
+    const session = { id: createId(), userId: user.id, createdAt: now, lastSeenAt: now };
     await sessionRepository.create(session);
     localStorage.setItem(SESSION_KEY, session.id);
     this.markWelcomeSeen();
@@ -81,10 +77,10 @@ export const authService = {
     if (sessionId) await sessionRepository.remove(sessionId);
     localStorage.removeItem(SESSION_KEY);
   },
-  async getProfile(userId) {
+  getProfile(userId) {
     return profileRepository.findByUserId(userId);
   },
-  async saveProfile(profile) {
+  saveProfile(profile) {
     return profileRepository.save({ ...profile, updatedAt: new Date().toISOString() });
   }
 };
