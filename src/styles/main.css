@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "@fontsource/vazirmatn/400.css";
+@import "@fontsource/vazirmatn/500.css";
+@import "@fontsource/vazirmatn/700.css";
+@import "@fontsource/lalezar/400.css";
+@import "@phosphor-icons/web/src/regular/style.css";
+
+@theme {
+  --font-body: "Vazirmatn", sans-serif;
+  --font-display: "Lalezar", sans-serif;
+
+  --color-primary: #7C3AED;
+  --color-secondary: #EC4899;
+  --color-cta: #F97316;
+  --color-app-bg: #FAF5FF;
+  --color-surface: #FFFFFF;
+  --color-app-text: #1E1B4B;
+  --color-muted: #6B7280;
+  --color-line: #E9D5FF;
+  --color-positive: #22C55E;
+  --color-negative: #EF4444;
+  --color-info: #3B82F6;
+  --color-warning: #EAB308;
+
+  --radius-card: 16px;
+  --shadow-card: 0 4px 0 #E9D5FF;
+}
+
+@theme dark {
+  --color-app-bg: #0F0B1E;
+  --color-surface: #1B1535;
+  --color-app-text: #F5F3FF;
+  --color-muted: #A1A1AA;
+  --color-line: #2E2650;
+}
