@@ -3,7 +3,7 @@
 @import "@fontsource/vazirmatn/500.css";
 @import "@fontsource/vazirmatn/700.css";
 @import "@fontsource/lalezar/400.css";
-@import "@phosphor-icons/web/src/regular/style.css";
+@import "@phosphor-icons/web/regular";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
