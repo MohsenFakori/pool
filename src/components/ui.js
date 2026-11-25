@@ -1,6 +1,6 @@
 import { escapeHtml, icon } from '../app/utils.js';
 
-export const button = (label, { variant = 'primary', size = 'md', type = 'button', iconName = '', attrs = '' } = {}) => {
+export const button = (label, { variant = 'primary', size = 'md', type = 'button', iconName = '', className = '', id = '', disabled = false } = {}) => {
   const variants = {
     primary: 'bg-gradient-to-l from-primary to-secondary text-white shadow-[0_4px_0_rgba(0,0,0,0.18)]',
     cta: 'bg-cta text-white shadow-[0_4px_0_rgba(0,0,0,0.18)]',
@@ -12,7 +12,7 @@ export const button = (label, { variant = 'primary', size = 'md', type = 'button
     md: 'min-h-11 rounded-2xl px-5 text-sm',
     lg: 'min-h-14 rounded-2xl px-7 text-base'
   };
-  return `<button type="${type}" class="inline-flex items-center justify-center gap-2 font-display transition active:translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${sizes[size]}" ${attrs}>${iconName ? icon(iconName) : ''}<span>${escapeHtml(label)}</span></button>`;
+  return `<button type="${type}" ${id ? `id="${escapeHtml(id)}"` : ''} ${disabled ? 'disabled' : ''} class="inline-flex items-center justify-center gap-2 font-display transition active:translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-50 ${variants[variant]} ${sizes[size]} ${className}">${iconName ? icon(iconName) : ''}<span>${escapeHtml(label)}</span></button>`;
 };
 
 export const card = content =>
